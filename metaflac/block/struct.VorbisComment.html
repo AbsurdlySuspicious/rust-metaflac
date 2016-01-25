@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VorbisComment` struct in crate `metaflac`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VorbisComment">
+
+    <title>metaflac::block::VorbisComment - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>metaflac</a>::<wbr><a href='index.html'>block</a></p><script>window.sidebarCurrent = {name: 'VorbisComment', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>metaflac</a>::<wbr><a href='index.html'>block</a>::<wbr><a class='struct' href=''>VorbisComment</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-492' class='srclink' href='../../src/metaflac/block.rs.html#803-808' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct VorbisComment {
+    pub vendor_string: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,
+    pub comments: <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;,
+}</pre><div class='docblock'><p>A structure representing a VORBIS_COMMENT block.</p>
+</div><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                                  <td id='structfield.vendor_string'><code>vendor_string</code></td><td><div class='docblock'><p>The vendor string.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.comments'><code>comments</code></td><td><div class='docblock'><p>A map of keys to a list of their values.</p>
+</div></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../metaflac/block/struct.VorbisComment.html' title='metaflac::block::VorbisComment'>VorbisComment</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../metaflac/block/struct.VorbisComment.html' title='metaflac::block::VorbisComment'>VorbisComment</a></code></h4>
+<div class='docblock'><p>Returns a new <code>VorbisComment</code> with an empty vendor string and no comments.</p>
+</div><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(bytes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../../metaflac/type.Result.html' title='metaflac::Result'>Result</a>&lt;<a class='struct' href='../../metaflac/block/struct.VorbisComment.html' title='metaflac::block::VorbisComment'>VorbisComment</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to parse the bytes as a vorbis comment block. Returns a <code>VorbisComment</code> on
+success.</p>
+</div><h4 id='method.to_bytes' class='method'><code>fn <a href='#method.to_bytes' class='fnname'>to_bytes</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></h4>
+<div class='docblock'><p>Returns a vector representation of the vorbis comment suitable for writing to a file.</p>
+</div><h4 id='method.get' class='method'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self, key: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of comments for the specified key.</p>
+</div><h4 id='method.set' class='method'><code>fn <a href='#method.set' class='fnname'>set</a>&lt;K: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;, V: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, key: K, values: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;V&gt;)</code></h4>
+<div class='docblock'><p>Sets the comments for the specified key. Any previous values under the key will be removed.</p>
+</div><h4 id='method.remove' class='method'><code>fn <a href='#method.remove' class='fnname'>remove</a>(&amp;mut self, key: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Removes the comments for the specified key.</p>
+</div><h4 id='method.remove_pair' class='method'><code>fn <a href='#method.remove_pair' class='fnname'>remove_pair</a>(&amp;mut self, key: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, value: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Removes any matching key/value pairs.</p>
+</div><h4 id='method.artist' class='method'><code>fn <a href='#method.artist' class='fnname'>artist</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of values with the ARTIST key.</p>
+</div><h4 id='method.set_artist' class='method'><code>fn <a href='#method.set_artist' class='fnname'>set_artist</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, artists: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the ARTIST key. This will result in any ARTISTSORT comment being
+removed.</p>
+</div><h4 id='method.remove_artist' class='method'><code>fn <a href='#method.remove_artist' class='fnname'>remove_artist</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the ARTIST key. This will result in any ARTISTSORT comments being
+removed as well.</p>
+</div><h4 id='method.album' class='method'><code>fn <a href='#method.album' class='fnname'>album</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of values with the ALBUM key.</p>
+</div><h4 id='method.set_album' class='method'><code>fn <a href='#method.set_album' class='fnname'>set_album</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, albums: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the ALBUM key. This will result in any ALBUMSORT comments being
+removed.</p>
+</div><h4 id='method.remove_album' class='method'><code>fn <a href='#method.remove_album' class='fnname'>remove_album</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the ALBUM key. This will result in any ALBUMSORT comments being
+removed as well.</p>
+</div><h4 id='method.genre' class='method'><code>fn <a href='#method.genre' class='fnname'>genre</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of values with the GENRE key.</p>
+</div><h4 id='method.set_genre' class='method'><code>fn <a href='#method.set_genre' class='fnname'>set_genre</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, genres: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the GENRE key.</p>
+</div><h4 id='method.remove_genre' class='method'><code>fn <a href='#method.remove_genre' class='fnname'>remove_genre</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the GENRE key.</p>
+</div><h4 id='method.title' class='method'><code>fn <a href='#method.title' class='fnname'>title</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns reference to the vector of values with the TITLE key.</p>
+</div><h4 id='method.set_title' class='method'><code>fn <a href='#method.set_title' class='fnname'>set_title</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, title: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the TITLE key. This will result in any TITLESORT comments being
+removed.</p>
+</div><h4 id='method.remove_title' class='method'><code>fn <a href='#method.remove_title' class='fnname'>remove_title</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the TITLE key. This will result in any TITLESORT comments being
+removed as well.</p>
+</div><h4 id='method.track' class='method'><code>fn <a href='#method.track' class='fnname'>track</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to convert the first TRACKNUMBER comment to a <code>u32</code>.</p>
+</div><h4 id='method.set_track' class='method'><code>fn <a href='#method.set_track' class='fnname'>set_track</a>(&amp;mut self, track: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></h4>
+<div class='docblock'><p>Sets the TRACKNUMBER comment.</p>
+</div><h4 id='method.remove_track' class='method'><code>fn <a href='#method.remove_track' class='fnname'>remove_track</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the TRACKNUMBER key.</p>
+</div><h4 id='method.total_tracks' class='method'><code>fn <a href='#method.total_tracks' class='fnname'>total_tracks</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to convert the first TOTALTRACKS comment to a <code>u32</code>.</p>
+</div><h4 id='method.set_total_tracks' class='method'><code>fn <a href='#method.set_total_tracks' class='fnname'>set_total_tracks</a>(&amp;mut self, total_tracks: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></h4>
+<div class='docblock'><p>Sets the TOTALTRACKS comment.</p>
+</div><h4 id='method.remove_total_tracks' class='method'><code>fn <a href='#method.remove_total_tracks' class='fnname'>remove_total_tracks</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the TOTALTRACKS key.</p>
+</div><h4 id='method.album_artist' class='method'><code>fn <a href='#method.album_artist' class='fnname'>album_artist</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of values with the ALBUMARTIST key.</p>
+</div><h4 id='method.set_album_artist' class='method'><code>fn <a href='#method.set_album_artist' class='fnname'>set_album_artist</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, album_artists: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the ALBUMARTIST key. This will result in any ALBUMARTISTSORT comments
+being removed.</p>
+</div><h4 id='method.remove_album_artist' class='method'><code>fn <a href='#method.remove_album_artist' class='fnname'>remove_album_artist</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the ALBUMARTIST key. This will result in any ALBUMARTISTSORT
+comments being removed as well.</p>
+</div><h4 id='method.lyrics' class='method'><code>fn <a href='#method.lyrics' class='fnname'>lyrics</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns a reference to the vector of values with the LYRICS key.</p>
+</div><h4 id='method.set_lyrics' class='method'><code>fn <a href='#method.set_lyrics' class='fnname'>set_lyrics</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;(&amp;mut self, lyrics: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt;)</code></h4>
+<div class='docblock'><p>Sets the values for the LYRICS key.</p>
+</div><h4 id='method.remove_lyrics' class='method'><code>fn <a href='#method.remove_lyrics' class='fnname'>remove_lyrics</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Removes all values with the LYRICS key.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../metaflac/block/struct.VorbisComment.html' title='metaflac::block::VorbisComment'>VorbisComment</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "metaflac";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Tag","A structure representing a flac metadata tag."]]});

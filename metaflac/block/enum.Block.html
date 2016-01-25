@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Block` enum in crate `metaflac`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Block">
+
+    <title>metaflac::block::Block - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>metaflac</a>::<wbr><a href='index.html'>block</a></p><script>window.sidebarCurrent = {name: 'Block', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>metaflac</a>::<wbr><a href='index.html'>block</a>::<wbr><a class='enum' href=''>Block</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-78' class='srclink' href='../../src/metaflac/block.rs.html#74-91' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Block {
+    StreamInfo(<a class='struct' href='../../metaflac/block/struct.StreamInfo.html' title='metaflac::block::StreamInfo'>StreamInfo</a>),
+    Application(<a class='struct' href='../../metaflac/block/struct.Application.html' title='metaflac::block::Application'>Application</a>),
+    CueSheet(<a class='struct' href='../../metaflac/block/struct.CueSheet.html' title='metaflac::block::CueSheet'>CueSheet</a>),
+    Padding(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>),
+    Picture(<a class='struct' href='../../metaflac/block/struct.Picture.html' title='metaflac::block::Picture'>Picture</a>),
+    SeekTable(<a class='struct' href='../../metaflac/block/struct.SeekTable.html' title='metaflac::block::SeekTable'>SeekTable</a>),
+    VorbisComment(<a class='struct' href='../../metaflac/block/struct.VorbisComment.html' title='metaflac::block::VorbisComment'>VorbisComment</a>),
+    Unknown(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>),
+}</pre><div class='docblock'><p>The parsed content of a metadata block.</p>
+</div><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.StreamInfo'><code>StreamInfo</code></td><td><div class='docblock'><p>A value containing a parsed streaminfo block.</p>
+</div></td></tr><tr><td id='variant.Application'><code>Application</code></td><td><div class='docblock'><p>A value containing a parsed application block.</p>
+</div></td></tr><tr><td id='variant.CueSheet'><code>CueSheet</code></td><td><div class='docblock'><p>A value containing a parsed cuesheet block.</p>
+</div></td></tr><tr><td id='variant.Padding'><code>Padding</code></td><td><div class='docblock'><p>A value containing the number of bytes of padding.</p>
+</div></td></tr><tr><td id='variant.Picture'><code>Picture</code></td><td><div class='docblock'><p>A value containing a parsed picture block.</p>
+</div></td></tr><tr><td id='variant.SeekTable'><code>SeekTable</code></td><td><div class='docblock'><p>A value containing a parsed seektable block.</p>
+</div></td></tr><tr><td id='variant.VorbisComment'><code>VorbisComment</code></td><td><div class='docblock'><p>A value containing a parsed vorbis comment block.</p>
+</div></td></tr><tr><td id='variant.Unknown'><code>Unknown</code></td><td><div class='docblock'><p>An value containing the bytes of an unknown block.</p>
+</div></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='enum' href='../../metaflac/block/enum.Block.html' title='metaflac::block::Block'>Block</a></code></h3><div class='impl-items'><h4 id='method.read_from' class='method'><code>fn <a href='#method.read_from' class='fnname'>read_from</a>(reader: &amp;mut <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a>) -&gt; <a class='type' href='../../metaflac/type.Result.html' title='metaflac::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, <a class='enum' href='../../metaflac/block/enum.Block.html' title='metaflac::block::Block'>Block</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to read a block from the reader. Returns a tuple containing a boolean indicating
+if the block was the last block, the length of the block in bytes, and the new <code>Block</code>.</p>
+</div><h4 id='method.write_to' class='method'><code>fn <a href='#method.write_to' class='fnname'>write_to</a>(&amp;self, is_last: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, writer: &amp;mut <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html' title='std::io::Write'>Write</a>) -&gt; <a class='type' href='../../metaflac/type.Result.html' title='metaflac::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<div class='docblock'><p>Attemps to write the block to the writer. Returns the length of the block in bytes.</p>
+</div><h4 id='method.block_type' class='method'><code>fn <a href='#method.block_type' class='fnname'>block_type</a>(&amp;self) -&gt; <a class='enum' href='../../metaflac/block/enum.BlockType.html' title='metaflac::block::BlockType'>BlockType</a></code></h4>
+<div class='docblock'><p>Returns the corresponding block type byte for the block.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../metaflac/block/enum.Block.html' title='metaflac::block::Block'>Block</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "metaflac";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
